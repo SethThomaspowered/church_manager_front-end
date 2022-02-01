@@ -29,7 +29,7 @@
     justify-content: flex-start;
     width: 90%;
     align-self: center;
-    border: 1px black solid;
+    /* border: 1px black solid; */
 }
 
 .header, .div-footer {

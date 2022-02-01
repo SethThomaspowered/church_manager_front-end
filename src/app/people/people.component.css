@@ -1,0 +1,48 @@
+.people-mgr {
+    display: flex;
+    flex-direction: column;
+}
+
+.search{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+width: 30%;
+align-self: center;
+border: 1px black solid;
+}
+
+.search h2 {
+    margin: 0.5REM 1REM;
+    align-self: center;
+}
+
+.search input {
+    margin: 0.5REM 1REM;
+}
+
+fieldset {
+    border: none
+}
+
+.person {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    width: 75%;
+    align-self: center;
+    margin: 1REM auto;
+    /* border: 1px black solid; */
+}
+
+.basic-info, .profile, .member-record {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+    align-self: center;
+    /* border: 1px red solid; */
+    padding:1REM;
+}
