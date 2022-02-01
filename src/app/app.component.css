@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Peta&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+.main-container{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.banner{
+    align-self: center;
+    margin: 0.5REM auto;
+    font-family: 'Lexend Peta', sans-serif;
+}
+
+.banner h1 {
+    font-weight: 200;
+    font-size: 4REM;
+    margin: 0;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 90%;
+    align-self: center;
+    border: 1px black solid;
+}
+
+.header, .div-footer {
+    margin: 0.5REM;
+    background-color: dodgerblue;
+    color: white;
+    display: flex;
+    flex-direction: row;
+}
+
+.header {
+    flex-direction: column;
+}
+
+.div-footer {
+    justify-content: center;
+    font-family: 'Lexend Peta', sans-serif;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+
+nav a {
+    border: white 5px solid;
+    border-radius: 15%;
+    margin: 0.5REM;
+    padding: 0.5REM;
+    color: white;
+    text-decoration: none;
+    font-family: 'Lexend Peta', sans-serif;
+}
+
+nav a:hover {
+    color: dodgerblue;
+    background-color: white;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+.main-content {
+    min-height: 100%;
+    flex-grow: 5;
+}
+
+nav a.active {
+    color: dodgerblue;
+    background-color: white;
+    text-decoration: none;
+}
