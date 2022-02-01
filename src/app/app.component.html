@@ -3,16 +3,15 @@
     <div class="banner"><h1>Hometown Church</h1></div>
     <nav>
     
-        <a href="#" class="active">Home</a>
-        <a href="#" class="">People</a>
-        <a href="#" class="">Groups</a>
-        <a href="#" class="">Money</a>
+        <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]={exact:true}>Home</a>
+        <a routerLink="people" routerLinkActive="active">People</a>
+        <a routerLink="groups" routerLinkActive="active">Groups</a>
+        <a routerLink="money" routerLinkActive="active">Money</a>
       
     </nav>
   </div>
 
   <div class="main-content">
-    [Main Content]
     <router-outlet></router-outlet>
   </div>
   

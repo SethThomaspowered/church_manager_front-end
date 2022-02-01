@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { PeopleComponent } from './people/people.component';
 import { GroupsComponent } from './groups/groups.component';
 import { MoneyComponent } from './money/money.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { MoneyComponent } from './money/money.component';
     HomeComponent,
     PeopleComponent,
     GroupsComponent,
-    MoneyComponent
+    MoneyComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
