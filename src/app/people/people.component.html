@@ -1,1 +1,26 @@
-<p>people works!</p>
+<div class="people-mgr">
+TEST
+    <div class="search">
+        <fieldset id="field">
+            <input type="radio" id="email" name="field" value="email">
+            <label for="email">Email</label>
+    
+            <input type="radio" id="phoneNumber" name="field" value="phoneNumber" checked>
+            <label for="phoneNumber">Phone Number</label>
+          </fieldset>
+        <input type="text" placeholder="Search"/>
+        <input (click)="searchPeople(field, search)" type="submit" value="Search"/> 
+    </div>
+
+    <div class="person" *ngIf="person">
+        {{person.firstName}}
+    </div>
+
+
+
+
+
+
+
+</div>
+
