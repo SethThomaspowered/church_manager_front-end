@@ -34,7 +34,7 @@
 
 .header, .div-footer {
     margin: 0.5REM;
-    background-color: dodgerblue;
+    background-color: #005A9C;
     color: white;
     display: flex;
     flex-direction: row;
@@ -42,6 +42,11 @@
 
 .header {
     flex-direction: column;
+    border-bottom: 5px #EF3E42 solid;
+}
+
+.div-footer {
+    border-top: 5px #EF3E42 solid;
 }
 
 .div-footer {
@@ -68,7 +73,7 @@ nav a {
 }
 
 nav a:hover {
-    color: dodgerblue;
+    color: #005A9C;
     background-color: white;
     text-decoration: none;
     transition: 0.5s;
@@ -80,7 +85,8 @@ nav a:hover {
 }
 
 nav a.active {
-    color: dodgerblue;
+    color: #005A9C;
     background-color: white;
+    border: #fff 5px solid;
     text-decoration: none;
 }

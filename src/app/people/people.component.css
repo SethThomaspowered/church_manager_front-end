@@ -57,7 +57,7 @@ fieldset {
 .manager-box {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .sub-box{
@@ -66,7 +66,10 @@ fieldset {
     justify-content: space-between;
 }
 
-
+.children, .parents, .spouse{
+    border: 1px black solid;
+    padding: 1REM;
+}
 .childrenList, .parentsList, .spouseList{
     background-color: #005A9C;
     color: white;
