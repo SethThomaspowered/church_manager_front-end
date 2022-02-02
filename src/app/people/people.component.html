@@ -3,15 +3,39 @@
     <div class="search">
         <h2>Search for a person:</h2>
         <fieldset id="field">
+            
+            <input [(ngModel)]="field" type="radio" id="idNumber" name="field" value="idNumber" >
+            <label for="idNumber">ID</label>
+
             <input [(ngModel)]="field" type="radio" id="email" name="field" value="email">
             <label for="email">Email</label>
     
-            <input [(ngModel)]="field"type="radio" id="phoneNumber" name="field" value="phoneNumber" checked>
+            <input [(ngModel)]="field" type="radio" id="phoneNumber" name="field" value="phoneNumber" checked>
             <label for="phoneNumber">Phone Number</label>
+
         </fieldset>
         <input [(ngModel)]="search" type="text" placeholder="Search"/>
         <input (click)="searchPeople(field, search)" type="submit" value="Search"/> 
     </div>
+
+    <div class="error" *ngIf="!(status >= 200 || status < 300)">
+        <span class="red">We received an error. Please search again</span>
+
+    </div>
+
+
+    <div class="resultList" *ngIf="peopleArray.length">
+        <span class="red" *ngIf="peopleArray">Multiple people found. Search by ID</span>
+
+        <ul>
+            <li *ngFor="let p of peopleArray">
+                
+                ID: {{p.id}}  ( {{p.firstName}} {{p.middleName}} {{p.lastName}} )
+            </li>
+        </ul>
+    </div>
+
+
 
     <div class="person" *ngIf="person">
         <div class="basic-info">
@@ -36,6 +60,15 @@
 <br>
             ID-Number: 
             {{person.id}}
+            <input (click)="updateBasicInfo(
+                id,
+                firstName,
+                middleName,
+                lastName,
+                emailAddress,
+                phoneNumber,
+                type
+            )" type="submit" value="Update Basic Info"  *ngIf="person"/>
             
         </div>
         <div class="profile">
@@ -48,7 +81,13 @@
 
             Anniversary: 
             <input [(ngModel)]=anniversary type="text" value="{{person.profile.anniversaryDate}}"/>
-
+            <br>
+            <input (click)="updateProfile(
+                id,
+                birthDate,
+                married,
+                anniversary
+            )" type="submit" value="Update Profile"  *ngIf="person"/>
         </div>
  
         <div class="member-record">
@@ -67,17 +106,92 @@
 
             Comments: 
             <input [(ngModel)]=comments type="textarea" value="{{person.memberRecord.comments}}"/>
+            <BR>
+            <input (click)="updateMemberRecord(
+                id,
+                deacon,
+                joinDate,
+                joinMethod,
+                membershipEndDate,
+                comments
+            )" type="submit" value="Update Member Record"  *ngIf="person"/>
         </div>
 
     </div>
-    <input (click)="updatePeople(
-        firstName,
-        middleName,
-        lastName,
-        emailAddress,
-        phoneNumber,
-        type
-    )" type="submit" value="UPDATE"  *ngIf="person"/>
+
+    <hr>
+
+
+    <div class="link-container">
+        <div class="children" *ngIf="person">
+            <h3>Manage Children</h3>
+            <ul class="childrenList" *ngIf="person.children != null || person.children.length === 0">
+                <li class="child" *ngFor="let child of person.children">ID: {{child.id}} Name: {{child.firstName}} {{child.middleName}} {{child.lastName}}</li>
+            </ul>
+
+            <div class="manager-box">
+                <div class="sub-box">
+                    Add Child by ID: 
+                    <input [(ngModel)]=childId type="textarea" value=""/>
+                    <BR>
+                    <input (click)="addChild(childId)" type="submit" value="Add Child" />
+                </div>
+                <div class="sub-box"><br>
+                    Remove Child by ID: 
+                    <input [(ngModel)]=childId type="textarea" value=""/>
+                    <BR>
+                    <input (click)="removeChild(childId)" type="submit" value="Remove Child" />
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+
+        <div class="parents" *ngIf="person">
+            <h3>Manage Parents</h3>
+            <ul class="parentsList" *ngIf="person.parents != null || person.parents.length === 0">
+                <li class="parent" *ngFor="let parent of person.parents">ID: {{parent.id}} Name: {{parent.firstName}} {{parent.middleName}} {{parent.lastName}}</li>
+            </ul>
+
+            <div class="manager-box">
+                <div class="sub-box">
+                    Add Parent by ID: 
+                    <input [(ngModel)]=parentId type="text" value=""/>
+                    <BR>
+                    <input (click)="addParent(parentId)" type="submit" value="Add Parent" />
+                </div>
+                <div class="sub-box"><br>
+                    Remove Parent by ID: 
+                    <input [(ngModel)]=parentId type="textarea" value=""/>
+                    <BR>
+                    <input (click)="removeParent(parentId)" type="submit" value="Remove Parent" />
+                </div>
+            </div>
+
+        </div>
+
+        <div class="spouse" *ngIf="person">
+            <h3>Manage Spouse</h3>
+            <span class="spouseList" *ngIf="person.spouse != null"> 
+                ID: {{person.spouse.id}} Name: {{person.spouse.firstName}} {{person.spouse.middleName}} {{person.spouse.lastName}}    
+            </span><br *ngIf="person.spouse"><br *ngIf="person.spouse">
+            <div class="manager-box">
+                <div class="sub-box">
+                    Add/Update Spouse by ID: 
+                    <input [(ngModel)]=spouseId type="text" value=""/>
+                    <BR>
+                    <input (click)="addSpouse(spouseId)" type="submit" value="Add Spouse" />
+                </div>
+                <div class="sub-box"><br>
+                    Remove Spouse: 
+                    <input (click)="removeSpouse()" type="submit" value="Remove Spouse" />
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 

@@ -46,3 +46,34 @@ fieldset {
     /* border: 1px red solid; */
     padding:1REM;
 }
+
+.link-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.manager-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sub-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.childrenList, .parentsList, .spouseList{
+    background-color: #005A9C;
+    color: white;
+    padding: 0.5REM;
+    outline: 5px darkred solid;
+}
+
+.red {
+    color: red;
+}

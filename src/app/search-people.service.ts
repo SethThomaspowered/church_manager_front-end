@@ -8,13 +8,22 @@ export class SearchPeopleService {
 
   constructor(private http: HttpClient) {}
 
-    createAPIObservable(field: string, search: string){
+    createAPIObservable(field: string, search: any){
+      console.log(`service : ${search}`)
       if(field==="email"){
-        return this.http.get(`https://church-mgr-proj.herokuapp.com/api/v1/people/email/'${search}'`);  
+        return this.http.get(`https://church-mgr-proj.herokuapp.com/api/v1/people/email/'${search}'`,
+        {observe: 'response'});  
         
+      } else if(field==="phoneNumber") {
+        return this.http.get(`https://church-mgr-proj.herokuapp.com/api/v1/people/phoneNumber/'${search}'`,
+        {observe: 'response'}); 
+
       } else {
-        return this.http.get(`https://church-mgr-proj.herokuapp.com/api/v1/people/phoneNumber/'${search}'`);
-        
+        console.log(`else : ${search}`);
+        let url = `https://church-mgr-proj.herokuapp.com/api/v1/people/id/${search}`;
+        console.log(url);
+        return this.http.get(url,
+          {observe: 'response'}); 
       }
 
      }
