@@ -43,6 +43,13 @@ export class PeopleComponent implements OnInit {
   parentId: number = 0;
   spouseId: number = 0;
 
+  firstNameNew: string ="";
+  middleNameNew: string ="";
+  lastNameNew: string ="";
+  emailAddressNew: string ="";
+  phoneNumberNew: string ="";
+  typeNew: string ="";
+
 
 
 
@@ -94,6 +101,38 @@ export class PeopleComponent implements OnInit {
     this.search='';
   }
 
+  createPerson( 
+    firstNameNew: string,
+    middleNameNew: string,
+    lastNameNew: string,
+    emailAddressNew: string,
+    phoneNumberNew: string,
+    typeNew: string
+    ){
+      let personObject = {
+          "firstName":firstNameNew,
+          "middleName":middleNameNew,
+          "lastName":lastNameNew,
+          "emailAddress":emailAddressNew,
+          "phoneNumber":phoneNumberNew,
+          "type":typeNew
+        };
+
+      this.searchPeopleService.createPersonObservable(personObject)
+      .subscribe((response: any) => {
+        this.status = response.status;
+        let newId = response.body.id;
+        this.searchPeople('id', newId.toString());
+      })
+
+      this.firstNameNew = "";
+      this.middleNameNew = "";
+      this.lastNameNew = "";
+      this.emailAddressNew = "";
+      this.phoneNumberNew = "";
+      this.typeNew = "";
+  }
+
   updateBasicInfo(
     id: number, 
     firstName: string,
@@ -117,7 +156,6 @@ export class PeopleComponent implements OnInit {
         this.status = response.status;
         this.searchPeople('id', id.toString())
       })
-
   }
 
   updateProfile(id: number, birthDate: string|null, married: boolean, anniversary: string|null){

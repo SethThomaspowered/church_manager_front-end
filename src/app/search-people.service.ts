@@ -28,6 +28,11 @@ export class SearchPeopleService {
 
      }
 
+    createPersonObservable(body: any){
+      return this.http.post<any>(`https://church-mgr-proj.herokuapp.com/api/v1/people/`, body,
+      {observe: 'response'});  
+    }
+
     updatePersonObservable(personId: number, body: any){
       return this.http.put<any>(`https://church-mgr-proj.herokuapp.com/api/v1/people/${personId}`, body,
       {observe: 'response'});  

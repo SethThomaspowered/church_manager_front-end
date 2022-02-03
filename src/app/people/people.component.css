@@ -3,7 +3,7 @@
     flex-direction: column;
 }
 
-.search{
+.search, .create{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -12,7 +12,11 @@ align-self: center;
 border: 1px black solid;
 }
 
-.search h2 {
+.create {
+    margin: 1REM;
+}
+
+.search h2, .create h2 {
     margin: 0.5REM 1REM;
     align-self: center;
 }
@@ -69,11 +73,11 @@ fieldset {
     justify-content: space-between;
 }
 
-.children, .parents, .spouse{
+.children, .parents, .spouse, .groups{
     border: 1px black solid;
     padding: 1REM;
 }
-.childrenList, .parentsList, .spouseList{
+.childrenList, .parentsList, .spouseList, .groupList{
     background-color: #005A9C;
     color: white;
     padding: 0.5REM;

@@ -191,11 +191,44 @@
                 </div>
             </div>
         </div>
+
+        <div class="groups" *ngIf="person">
+            <h3>Involvement</h3>
+            <ul class="groupList" *ngIf="person.groups.length > 0"> 
+                <li *ngFor="let group of person.groups">
+                    ID: {{group.id}}<br>Name: {{group.type}} ({{group.name}})<br><i>{{group.description}}</i>
+                </li>
+            </ul>
+        </div>
+
+
+
     </div>
 
 
 
+    <div class="create">
+        <h2>Create New person:</h2>
+        First Name: 
+        <input [(ngModel)]=firstNameNew type="text" />
 
+        Middle Name: 
+        <input [(ngModel)]=middleNameNew type="text" />
+
+        Last Name: 
+        <input [(ngModel)]=lastNameNew type="text" />
+
+        Email: 
+        <input [(ngModel)]=emailAddressNew type="text" />
+
+        Phone: 
+        <input [(ngModel)]=phoneNumberNew type="text" />
+
+        Type: 
+        <input [(ngModel)]=type type="text" />
+<br>
+        <input (click)="createPerson(firstNameNew, middleNameNew, lastNameNew, emailAddressNew, phoneNumberNew, typeNew)" type="submit" value="Create"/> 
+    </div>
 
 
 
