@@ -130,15 +130,10 @@ export class PeopleComponent implements OnInit {
   }
 
   addChild(personId: number, childId: number){
-
     this.searchPeopleService.addChildObservable(personId, childId)
     .subscribe((response: any) => {
-      console.log(response);
-      console.log(`Status: ${response.status}`);
       this.status = response.status;
-
       this.searchPeople('id', personId.toString())
-
     })
   }
 
@@ -146,23 +141,42 @@ export class PeopleComponent implements OnInit {
     this.searchPeopleService.removeChildObservable(personId, childId)
     .subscribe((response: any) => {
       this.status = response.status;
-
       this.searchPeople('id', personId.toString())
-
     })
   }
-  addParent(id: number){
-    console.log(id);
-  }
-  removeParent(id: number){
-    console.log(id);
+
+  addParent(personId: number, parentId: number){
+    console.log(parentId)
+    this.searchPeopleService.addParentObservable(personId, parentId)
+    .subscribe((response: any) => {
+      this.status = response.status;
+      this.searchPeople('id', personId.toString())
+    })
   }
 
-  addSpouse(id: number){
-    console.log(id);
+  removeParent(personId: number, parentId: number){
+    this.searchPeopleService.removeParentObservable(personId, parentId)
+    .subscribe((response: any) => {
+      this.status = response.status;
+      this.searchPeople('id', personId.toString())
+    })
   }
-  removeSpouse(){
-    console.log('Remove');
+
+  addSpouse(personId: number, spouseId: number){
+    console.log(spouseId)
+    this.searchPeopleService.addSpouseObservable(personId, spouseId)
+    .subscribe((response: any) => {
+      this.status = response.status;
+      this.searchPeople('id', personId.toString())
+    })
+  }
+
+  removeSpouse(personId: number){
+    this.searchPeopleService.removeSpouseObservable(personId)
+    .subscribe((response: any) => {
+      this.status = response.status;
+      this.searchPeople('id', personId.toString())
+    })
   }
 
 }

@@ -161,13 +161,13 @@
                     Add Parent by ID: 
                     <input [(ngModel)]=parentId type="text" value=""/>
                     <BR>
-                    <input (click)="addParent(parentId)" type="submit" value="Add Parent" />
+                    <input (click)="addParent(person.id ,parentId)" type="submit" value="Add Parent" />
                 </div>
                 <div class="sub-box"><br>
                     Remove Parent by ID: 
-                    <input [(ngModel)]=parentId type="textarea" value=""/>
+                    <input [(ngModel)]=parentId type="text" value=""/>
                     <BR>
-                    <input (click)="removeParent(parentId)" type="submit" value="Remove Parent" />
+                    <input (click)="removeParent(person.id ,parentId)" type="submit" value="Remove Parent" />
                 </div>
             </div>
 
@@ -183,11 +183,11 @@
                     Add/Update Spouse by ID: 
                     <input [(ngModel)]=spouseId type="text" value=""/>
                     <BR>
-                    <input (click)="addSpouse(spouseId)" type="submit" value="Add Spouse" />
+                    <input (click)="addSpouse(person.id, spouseId)" type="submit" value="Add Spouse" />
                 </div>
                 <div class="sub-box"><br>
                     Remove Spouse: 
-                    <input (click)="removeSpouse()" type="submit" value="Remove Spouse" />
+                    <input (click)="removeSpouse(person.id)" type="submit" value="Remove Spouse" />
                 </div>
             </div>
         </div>

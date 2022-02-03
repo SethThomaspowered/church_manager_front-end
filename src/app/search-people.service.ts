@@ -28,18 +28,34 @@ export class SearchPeopleService {
 
      }
 
-     addChildObservable(personId: number, childId:number){
-      
+    addChildObservable(personId: number, childId:number){
         return this.http.put(`https://church-mgr-proj.herokuapp.com/api/v1/people/${personId}/addChild/${childId}`,
         {observe: 'response'});  
-        
      }
 
-     removeChildObservable(personId: number, childId:number){
-      
+    removeChildObservable(personId: number, childId:number){
       return this.http.put(`https://church-mgr-proj.herokuapp.com/api/v1/people/${personId}/removeChild/${childId}`,
       {observe: 'response'});  
-      
-   }
+    }
+
+    addParentObservable(personId: number, parentId:number){
+        return this.http.put(`https://church-mgr-proj.herokuapp.com/api/v1/people/${personId}/addParent/${parentId}`,
+        {observe: 'response'});  
+    }
+
+    removeParentObservable(personId: number, parentId:number){
+      return this.http.put(`https://church-mgr-proj.herokuapp.com/api/v1/people/${personId}/removeParent/${parentId}`,
+      {observe: 'response'});  
+    }
+
+    addSpouseObservable(personId: number, spouseId:number){
+      return this.http.put(`https://church-mgr-proj.herokuapp.com/api/v1/people/${personId}/addSpouse/${spouseId}`,
+      {observe: 'response'});  
+    }
+
+    removeSpouseObservable(personId: number){
+      return this.http.put(`https://church-mgr-proj.herokuapp.com/api/v1/people/${personId}/removeSpouse`,
+      {observe: 'response'});  
+    }
   
 }
