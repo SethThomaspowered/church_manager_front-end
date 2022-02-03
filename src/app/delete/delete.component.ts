@@ -12,11 +12,13 @@ import {  HttpClient } from '@angular/common/http';
 export class DeleteComponent implements OnInit {
   searchSubject = new Subject;
   person: any;
-  group: any;
+  
   peopleArray: Array<any> = [];
-  groupsArray: Array<any> = [];
   field: string = "";
   search: any = "";
+
+  group: any;
+  groupsArray: Array<any> = [];
   Gfield: string = "";
   Gsearch:string = "";
 

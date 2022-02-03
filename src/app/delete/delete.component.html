@@ -71,19 +71,19 @@
             <h2>Search for a GROUP to delete:</h2>
             <fieldset id="Gfield">
                 
-                <input [(ngModel)]="Gfield" type="radio" id="GidNumber" name="Gfield" >
+                <input [(ngModel)]="Gfield" type="radio" id="GidNumber" name="Gfield" value="GidNumber" >
                 <label for="GidNumber">ID</label>
 
-                <input [(ngModel)]="Gfield" type="radio" id="Gtype" name="Gfield" >
-                <label for="Gtype">Type</label>
+                <input [(ngModel)]="Gfield" type="radio" id="Gtype" name="Gfield" value="Gtype">
+                <label for="Gtype">type</label>
         
-                <input [(ngModel)]="Gfield" type="radio" id="Gname" name="Gfield" checked>
-                <label for="Gname">Name</label>
+                <input [(ngModel)]="Gfield" type="radio" id="Gname" name="Gfield" value="Gname" checked>
+                <label for="Gname">Class Name</label>
 
             </fieldset>
-            <input [(ngModel)]="Gsearch" type="text" placeholder="Search"/>
-            <input (click)="searchGroups(Gfield, Gsearch)" type="submit" value="Search"/> 
-            
+                <input [(ngModel)]="Gsearch" type="text" placeholder="Search" name="Gsearch"/>
+                
+                <input (click)="searchGroups(Gfield, Gsearch)" type="submit" value="Search"/> 
         </div>
 
 
@@ -100,7 +100,7 @@
 
 
 
-        <div class="groups" *ngIf="group">
+        <div class="group" *ngIf="group">
             <div class="basic-info">
                 <h3>Do you want to delete this group:</h3>
                 Name: 
