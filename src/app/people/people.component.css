@@ -88,3 +88,8 @@ fieldset {
     color: red;
 }
 
+.red h1 {
+    align-self: center;
+    margin: 0 auto;
+}
+

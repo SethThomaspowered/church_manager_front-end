@@ -1,1 +1,63 @@
-<p>delete works!</p>
+<div class="delete-mgr">
+
+    <div class="search">
+        <h2>Search for a person:</h2>
+        <fieldset id="field">
+            
+            <input [(ngModel)]="field" type="radio" id="idNumber" name="field" value="idNumber" >
+            <label for="idNumber">ID</label>
+
+            <input [(ngModel)]="field" type="radio" id="email" name="field" value="email">
+            <label for="email">Email</label>
+    
+            <input [(ngModel)]="field" type="radio" id="phoneNumber" name="field" value="phoneNumber" checked>
+            <label for="phoneNumber">Phone Number</label>
+
+        </fieldset>
+        <input [(ngModel)]="search" type="text" placeholder="Search"/>
+        <input (click)="searchPeople(field, search)" type="submit" value="Search"/> 
+        
+    </div>
+
+
+    <div class="resultList" *ngIf="peopleArray.length">
+        <span class="red" *ngIf="peopleArray">Multiple people found. Search by ID</span>
+
+        <ul>
+            <li *ngFor="let p of peopleArray">
+                
+                ID: {{p.id}}  ( {{p.firstName}} {{p.middleName}} {{p.lastName}} )
+            </li>
+        </ul>
+    </div>
+
+
+
+    <div class="person" *ngIf="person">
+        <div class="basic-info">
+            <h3>Do you want to delete this person:</h3>
+            First Name: 
+            <input [(ngModel)]=firstName type="text" value="{{person.firstName}}"/>
+
+            Middle Name: 
+            <input [(ngModel)]=middleName type="text" value="{{person.middleName}}"/>
+
+            Last Name: 
+            <input [(ngModel)]=lastName type="text" value="{{person.lastName}}"/>
+
+            Email: 
+            <input [(ngModel)]=emailAddress type="text" value="{{person.emailAddress}}"/>
+
+            Phone: 
+            <input [(ngModel)]=phoneNumber type="text" value="{{person.phoneNumber}}"/>
+
+            Type: 
+            <input [(ngModel)]=type type="text" value="{{person.type}}"/>
+<br>
+            ID-Number: 
+            {{person.id}}
+            <input (click)="deletePerson(person.id)" type="submit" value="Delete Person"  *ngIf="!(person.deleted)"/>
+            <br><br><span class="red" *ngIf="person.deleted"><h1>DELETED</h1></span>
+        </div>
+    </div>
+</div>

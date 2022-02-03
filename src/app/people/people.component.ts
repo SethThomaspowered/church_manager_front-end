@@ -28,6 +28,7 @@ export class PeopleComponent implements OnInit {
   lastName: string = "";
   emailAddress: string = "";
   phoneNumber: string = "";
+  deleted: boolean = false;
 
   birthDate: string|null = "";
   anniversary: string = "";
@@ -89,6 +90,7 @@ export class PeopleComponent implements OnInit {
           this.lastName = this.person.lastName;
           this.emailAddress = this.person.emailAddress;
           this.phoneNumber = this.person.phoneNumber;
+          this.deleted = this.person.deleted;
       }
       
       console.log(this.peopleArray)

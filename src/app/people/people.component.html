@@ -88,6 +88,9 @@
                 married,
                 anniversary
             )" type="submit" value="Update Profile"  *ngIf="person"/>
+
+<br><br><span class="red" *ngIf="person.deleted"><h1>DELETED</h1></span>
+
         </div>
  
         <div class="member-record">

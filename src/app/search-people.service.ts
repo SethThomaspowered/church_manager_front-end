@@ -78,4 +78,9 @@ export class SearchPeopleService {
       {observe: 'response'});  
     }
   
+    deletePersonObservable(personId: number){
+      return this.http.delete(`https://church-mgr-proj.herokuapp.com/api/v1/people/${personId}`,
+      {observe: 'response'});  
+    }
+
 }
