@@ -94,39 +94,60 @@ export class PeopleComponent implements OnInit {
     this.search='';
   }
 
-  updateBasicInfo(id: number, firstName: string,
+  updateBasicInfo(
+    id: number, 
+    firstName: string,
     middleName: string,
     lastName: string,
     emailAddress: string,
     phoneNumber: string,
-    type: string){
-      console.log(firstName + " " + lastName);
-
-      let personObject = [
-        {
+    type: string
+    ){
+      let personObject = {
           "firstName":firstName,
           "middleName":middleName,
           "lastName":lastName,
           "emailAddress":emailAddress,
           "phoneNumber":phoneNumber,
           "type":type
-        }
-      ]
+        };
+
+      this.searchPeopleService.updatePersonObservable(id, personObject)
+      .subscribe((response: any) => {
+        this.status = response.status;
+        this.searchPeople('id', id.toString())
+      })
 
   }
 
   updateProfile(id: number, birthDate: string|null, married: boolean, anniversary: string|null){
-    console.log(id)
+    let profileObject = {
+      "birthDate":birthDate,
+      "married":married,
+      "anniversary":anniversary
+    };
+
+    this.searchPeopleService.updateProfileObservable(id, profileObject)
+    .subscribe((response: any) => {
+      this.status = response.status;
+      this.searchPeople('id', id.toString())
+    })
   }
 
-  updateMemberRecord(       
-    id: number,
-    deacon: boolean,
-    joinDate: string|null,
-    joinMethod: string|null,
-    membershipEndDate: string|null,
-    comments: string|null){
-    console.log(id)
+  updateMemberRecord(id: number, deacon: boolean, joinDate: string|null, joinMethod: String|null, membershipEndDate: string|null, comments: string){
+    let profileObject = {
+      "deacon":deacon,
+      "joinDate":joinDate,
+      "joinMethod":joinMethod,
+      "membershipEndDate":membershipEndDate,
+      "comments":comments
+    };
+
+    this.searchPeopleService.updateMemberRecordObservable(id, profileObject)
+    .subscribe((response: any) => {
+      this.status = response.status;
+      this.searchPeople('id', id.toString())
+    })
   }
 
   addChild(personId: number, childId: number){

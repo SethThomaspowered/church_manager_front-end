@@ -28,6 +28,21 @@ export class SearchPeopleService {
 
      }
 
+    updatePersonObservable(personId: number, body: any){
+      return this.http.put<any>(`https://church-mgr-proj.herokuapp.com/api/v1/people/${personId}`, body,
+      {observe: 'response'});  
+    }
+
+    updateProfileObservable(personId: number, body: any){
+        return this.http.put<any>(`https://church-mgr-proj.herokuapp.com/api/v1/people/${personId}/profile`, body,
+        {observe: 'response'});  
+    }
+
+    updateMemberRecordObservable(personId: number, body: any){
+      return this.http.put<any>(`https://church-mgr-proj.herokuapp.com/api/v1/people/${personId}/memberRecord`, body,
+      {observe: 'response'});  
+  }
+
     addChildObservable(personId: number, childId:number){
         return this.http.put(`https://church-mgr-proj.herokuapp.com/api/v1/people/${personId}/addChild/${childId}`,
         {observe: 'response'});  
