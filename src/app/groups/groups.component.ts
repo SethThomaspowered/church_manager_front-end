@@ -28,12 +28,10 @@ export class GroupsComponent implements OnInit {
   leaders: any = [];
   members: any = [];
 
-  firstNameNew: string ="";
-  middleNameNew: string ="";
-  lastNameNew: string ="";
-  emailAddressNew: string ="";
-  phoneNumberNew: string ="";
+  nameNew: string ="";
   typeNew: string ="";
+  descriptionNew: string ="";
+  notesNew: string ="";
 
   memberId: number = 0;
   leaderId: number = 0;
@@ -143,64 +141,48 @@ export class GroupsComponent implements OnInit {
 
 
 
-  // createGroup( 
-  //   firstNameNew: string,
-  //   middleNameNew: string,
-  //   lastNameNew: string,
-  //   emailAddressNew: string,
-  //   phoneNumberNew: string,
-  //   typeNew: string
-  //   ){
-  //     let groupObject = {
-  //         "firstName":firstNameNew,
-  //         "middleName":middleNameNew,
-  //         "lastName":lastNameNew,
-  //         "emailAddress":emailAddressNew,
-  //         "phoneNumber":phoneNumberNew,
-  //         "type":typeNew
-  //       };
+  createGroup( 
+    nameNew: string,
+    typeNew: string,
+    descriptionNew: string,
+    notesNew: string
+    ){
+      let groupObject = {
+          "name":nameNew,
+          "type":typeNew,
+          "description":descriptionNew,
+          "notes":notesNew
+        };
 
-  //     this.searchGroupsService.createGroupObservable(groupObject)
-  //     .subscribe((response: any) => {
-  //       this.status = response.status;
-  //       let newId = response.body.id;
-  //       this.searchGroups('id', newId.toString());
-  //     })
+      this.searchGroupService.createGroupObservable(groupObject)
+      .subscribe((response: any) => {
+        this.status = response.status;
+        let newId = response.body.id;
+        this.searchGroups('id', newId.toString());
+      })
 
-  //     this.firstNameNew = "";
-  //     this.middleNameNew = "";
-  //     this.lastNameNew = "";
-  //     this.emailAddressNew = "";
-  //     this.phoneNumberNew = "";
-  //     this.typeNew = "";
-  // }
+      this.nameNew ="";
+      this.typeNew ="";
+      this.descriptionNew ="";
+      this.notesNew ="";
+  }
 
-   updateGroupInfo(){
+   updateGroupInfo(id: number, name: string, type: string, description:string, notes:string){
      console.log();
-   }
-  //   id: number, 
-  //   firstName: string,
-  //   middleName: string,
-  //   lastName: string,
-  //   emailAddress: string,
-  //   phoneNumber: string,
-  //   type: string
-  //   ){
-  //     let personObject = {
-  //         "firstName":firstName,
-  //         "middleName":middleName,
-  //         "lastName":lastName,
-  //         "emailAddress":emailAddress,
-  //         "phoneNumber":phoneNumber,
-  //         "type":type
-  //       };
 
-  //     this.searchGroupsService.updatePersonObservable(id, personObject)
-  //     .subscribe((response: any) => {
-  //       this.status = response.status;
-  //       this.searchGroups('id', id.toString())
-  //     })
-  // }
+      let groupObject = {
+          "name":name,
+          "type":type,
+          "description":description,
+          "notes":notes
+        };
+
+      this.searchGroupService.updateGroupObservable(id, groupObject)
+      .subscribe((response: any) => {
+        this.status = response.status;
+        this.searchGroups('id', id.toString())
+      })
+  }
 
 
 

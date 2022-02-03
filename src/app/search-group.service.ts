@@ -54,7 +54,17 @@ export class SearchGroupService {
   }
 
   removeStaffObservable(groupId: number){
-    return this.http.put(`https://church-mgr-proj.herokuapp.com/api/v1/groups/${groupId}/removeStaff`,
+    return this.http.put(`https://church-mgr-proj.herokuapp.com/api/v1/groups/${groupId}/removeStaffSup`,
+    {observe: 'response'});  
+  }
+
+  createGroupObservable(body: any){
+    return this.http.post<any>(`https://church-mgr-proj.herokuapp.com/api/v1/groups`, body,
+    {observe: 'response'});  
+  }
+
+  updateGroupObservable(groupId: number, body: any){
+    return this.http.put<any>(`https://church-mgr-proj.herokuapp.com/api/v1/groups/${groupId}`, body,
     {observe: 'response'});  
   }
 

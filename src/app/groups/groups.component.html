@@ -56,7 +56,7 @@
 <br>
             ID-Number: 
             {{group.id}}
-            <input (click)="updateGroupInfo()" type="submit" value="Update Group Info"  *ngIf="group"/>
+            <input (click)="updateGroupInfo(group.id, name, type, description, notes)" type="submit" value="Update Group Info"  *ngIf="group"/>
             
         </div>
        
@@ -139,29 +139,23 @@
     </div>
 
 
-<!--
+
     <div class="create">
-        <h2>Create New person:</h2>
-        First Name: 
-        <input [(ngModel)]=firstNameNew type="text" />
-
-        Middle Name: 
-        <input [(ngModel)]=middleNameNew type="text" />
-
-        Last Name: 
-        <input [(ngModel)]=lastNameNew type="text" />
-
-        Email: 
-        <input [(ngModel)]=emailAddressNew type="text" />
-
-        Phone: 
-        <input [(ngModel)]=phoneNumberNew type="text" />
+        <h2>Create New Group:</h2>
+        Name: 
+        <input [(ngModel)]=nameNew type="text" />
 
         Type: 
-        <input [(ngModel)]=type type="text" />
+        <input [(ngModel)]=typeNew type="text" />
+
+        Description: 
+        <input [(ngModel)]=descriptionNew type="text" />
+
+        Notes: 
+        <input [(ngModel)]=notesNew type="text" />
 <br>
-        <input (click)="createPerson(firstNameNew, middleNameNew, lastNameNew, emailAddressNew, phoneNumberNew, typeNew)" type="submit" value="Create"/> 
-    </div> -->
+        <input (click)="createGroup(nameNew, typeNew, descriptionNew, notesNew)" type="submit" value="Create"/> 
+    </div> 
 
 
 
