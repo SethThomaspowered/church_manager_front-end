@@ -125,7 +125,7 @@
     <div class="link-container">
         <div class="children" *ngIf="person">
             <h3>Manage Children</h3>
-            <ul class="childrenList" *ngIf="person.children != null || person.children.length === 0">
+            <ul class="childrenList" *ngIf="person.children.length > 0">
                 <li class="child" *ngFor="let child of person.children">ID: {{child.id}} Name: {{child.firstName}} {{child.middleName}} {{child.lastName}}</li>
             </ul>
 
@@ -134,13 +134,13 @@
                     Add Child by ID: 
                     <input [(ngModel)]=childId type="textarea" value=""/>
                     <BR>
-                    <input (click)="addChild(childId)" type="submit" value="Add Child" />
+                    <input (click)="addChild(person.id, childId)" type="submit" value="Add Child" />
                 </div>
                 <div class="sub-box"><br>
                     Remove Child by ID: 
                     <input [(ngModel)]=childId type="textarea" value=""/>
                     <BR>
-                    <input (click)="removeChild(childId)" type="submit" value="Remove Child" />
+                    <input (click)="removeChild(person.id ,childId)" type="submit" value="Remove Child" />
                 </div>
             </div>
 
@@ -152,7 +152,7 @@
 
         <div class="parents" *ngIf="person">
             <h3>Manage Parents</h3>
-            <ul class="parentsList" *ngIf="person.parents != null || person.parents.length === 0">
+            <ul class="parentsList" *ngIf="person.parents.length > 0">
                 <li class="parent" *ngFor="let parent of person.parents">ID: {{parent.id}} Name: {{parent.firstName}} {{parent.middleName}} {{parent.lastName}}</li>
             </ul>
 

@@ -129,11 +129,27 @@ export class PeopleComponent implements OnInit {
     console.log(id)
   }
 
-  addChild(id: number){
-    console.log(id);
+  addChild(personId: number, childId: number){
+
+    this.searchPeopleService.addChildObservable(personId, childId)
+    .subscribe((response: any) => {
+      console.log(response);
+      console.log(`Status: ${response.status}`);
+      this.status = response.status;
+
+      this.searchPeople('id', personId.toString())
+
+    })
   }
-  removeChild(id: number){
-    console.log(id);
+
+  removeChild(personId: number, childId: number){
+    this.searchPeopleService.removeChildObservable(personId, childId)
+    .subscribe((response: any) => {
+      this.status = response.status;
+
+      this.searchPeople('id', personId.toString())
+
+    })
   }
   addParent(id: number){
     console.log(id);

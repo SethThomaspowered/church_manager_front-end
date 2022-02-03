@@ -27,5 +27,19 @@ export class SearchPeopleService {
       }
 
      }
+
+     addChildObservable(personId: number, childId:number){
+      
+        return this.http.put(`https://church-mgr-proj.herokuapp.com/api/v1/people/${personId}/addChild/${childId}`,
+        {observe: 'response'});  
+        
+     }
+
+     removeChildObservable(personId: number, childId:number){
+      
+      return this.http.put(`https://church-mgr-proj.herokuapp.com/api/v1/people/${personId}/removeChild/${childId}`,
+      {observe: 'response'});  
+      
+   }
   
 }

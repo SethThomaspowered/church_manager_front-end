@@ -33,6 +33,9 @@ fieldset {
     width: 75%;
     align-self: center;
     margin: 1REM auto;
+    outline: 5px darkred solid;
+    background-color: #005A9C;
+    color: white;
     /* border: 1px black solid; */
 }
 
@@ -42,7 +45,7 @@ fieldset {
     flex-direction: column;
     justify-content: center;
     width: 40%;
-    align-self: center;
+    align-self: flex-start;
     /* border: 1px red solid; */
     padding:1REM;
 }
@@ -50,7 +53,7 @@ fieldset {
 .link-container{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
 
 }
 
@@ -80,3 +83,4 @@ fieldset {
 .red {
     color: red;
 }
+
