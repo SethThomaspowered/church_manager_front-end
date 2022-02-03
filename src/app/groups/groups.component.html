@@ -1,1 +1,169 @@
-<p>groups works!</p>
+<div class="group-mgr">
+
+    <div class="search">
+        <h2>Search for a group:</h2>
+        <fieldset id="field">
+            
+            <input [(ngModel)]="field" type="radio" id="idNumber" name="field" value="idNumber" >
+            <label for="idNumber">ID</label>
+
+            <input [(ngModel)]="field" type="radio" id="name" name="field" value="name">
+            <label for="name">Name</label>
+    
+            <input [(ngModel)]="field" type="radio" id="type" name="field" value="type" checked>
+            <label for="type">Type</label>
+
+        </fieldset>
+        <input [(ngModel)]="search" type="text" placeholder="Search"/>
+        <input (click)="searchGroups(field, search)" type="submit" value="Search"/> 
+    </div>
+
+    <div class="error" *ngIf="!(status >= 200 || status < 300)">
+        <span class="red">We received an error. Please search again</span>
+
+    </div>
+
+
+    <div class="resultList" *ngIf="groupsArray.length">
+        <span class="red" *ngIf="groupsArray">Multiple groups found. Search by ID</span>
+
+        <ul>
+            <li *ngFor="let g of groupsArray">
+                
+                ID: {{g.id}}  - {{g.name}} ( {{g.type}} )
+            </li>
+        </ul>
+    </div>
+
+
+
+    <div class="group" *ngIf="group">
+        <div class="group-info">
+            <h3>Group Info</h3>
+            Name: 
+            <input [(ngModel)]=name type="text" value="{{group.name}}"/>
+
+            Type: 
+            <input [(ngModel)]=type type="text" value="{{group.type}}"/>
+
+            Description: 
+            <input [(ngModel)]=description type="text" value="{{group.description}}"/>
+
+            Notes: 
+            <input [(ngModel)]=notes type="text" value="{{group.notes}}"/>
+
+
+<br>
+            ID-Number: 
+            {{group.id}}
+            <input (click)="updateGroupInfo()" type="submit" value="Update Group Info"  *ngIf="group"/>
+            
+        </div>
+       
+
+    </div>
+
+    <hr>
+
+
+    <div class="link-container">
+
+        <div class="membership" *ngIf="group">
+            <h3>Membership</h3>
+            <ul class="membersList" *ngIf="group.members.length > 0">
+                <li class="member" *ngFor="let member of group.members">ID: {{member.id}} Name: {{member.firstName}} {{member.middleName}} {{member.lastName}}</li>
+            </ul>
+        </div>
+
+        <div class="members" *ngIf="group">
+            <h3>Manage Members</h3>
+
+            <div class="manager-box">
+                <div class="sub-box">
+                    Add Member by ID: 
+                    <input [(ngModel)]=memberId type="textarea" value=""/>
+                    <BR>
+                    <input (click)="addMember(group.id, memberId)" type="submit" value="Add Member" />
+                </div>
+                <div class="sub-box"><br>
+                    Remove Member by ID: 
+                    <input [(ngModel)]=memberId type="textarea" value=""/>
+                    <BR>
+                    <input (click)="removeMember(group.id ,memberId)" type="submit" value="Remove Member" />
+                </div>
+            </div>
+        </div>
+
+        <div class="leader" *ngIf="group">
+            <h3>Manage Leaders</h3>
+            <ul class="leadersList" *ngIf="group.leaders.length > 0">
+                <li class="leaderLI" *ngFor="let leader of group.leaders">ID: {{leader.id}} Name: {{leader.firstName}} {{leader.middleName}} {{leader.lastName}}</li>
+            </ul>
+
+            <div class="manager-box">
+                <div class="sub-box">
+                    Add Leader by ID: 
+                    <input [(ngModel)]=leaderId type="text" value=""/>
+                    <BR>
+                    <input (click)="addLeader(group.id ,leaderId)" type="submit" value="Add Leader" />
+                </div>
+                <div class="sub-box"><br>
+                    Remove Leader by ID: 
+                    <input [(ngModel)]=leaderId type="text" value=""/>
+                    <BR>
+                    <input (click)="removeLeader(group.id ,leaderId)" type="submit" value="Remove Leader" />
+                </div>
+            </div>
+
+        </div>
+
+        <div class="staff" *ngIf="group">
+            <h3>Manage Staff Supervisor</h3>
+            <span class="staffList" *ngIf="group.staffSupervisor != null"> 
+                ID: {{group.staffSupervisor.id}} Name: {{group.staffSupervisor.firstName}} {{group.staffSupervisor.middleName}} {{group.staffSupervisor.lastName}}    
+            </span><br *ngIf="group.staffSupervisor"><br *ngIf="group.staffSupervisor">
+            <div class="manager-box">
+                <div class="sub-box">
+                    Add/Update Staff Supervisor by ID: 
+                    <input [(ngModel)]=staffId type="text" value=""/>
+                    <BR>
+                    <input (click)="addStaff(group.id, staffId)" type="submit" value="Add Staff Sup" />
+                </div>
+                <div class="sub-box"><br>
+                    Remove Spouse: 
+                    <input (click)="removeStaff(group.id)" type="submit" value="Remove Staff Sup" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+<!--
+    <div class="create">
+        <h2>Create New person:</h2>
+        First Name: 
+        <input [(ngModel)]=firstNameNew type="text" />
+
+        Middle Name: 
+        <input [(ngModel)]=middleNameNew type="text" />
+
+        Last Name: 
+        <input [(ngModel)]=lastNameNew type="text" />
+
+        Email: 
+        <input [(ngModel)]=emailAddressNew type="text" />
+
+        Phone: 
+        <input [(ngModel)]=phoneNumberNew type="text" />
+
+        Type: 
+        <input [(ngModel)]=type type="text" />
+<br>
+        <input (click)="createPerson(firstNameNew, middleNameNew, lastNameNew, emailAddressNew, phoneNumberNew, typeNew)" type="submit" value="Create"/> 
+    </div> -->
+
+
+
+</div>
+

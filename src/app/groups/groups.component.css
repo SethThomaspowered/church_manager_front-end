@@ -1,0 +1,95 @@
+.group-mgr {
+    display: flex;
+    flex-direction: column;
+}
+
+.search, .create{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30%;
+    align-self: center;
+    border: 1px black solid;
+}
+
+.create {
+    margin: 1REM;
+}
+
+.search h2, .create h2 {
+    margin: 0.5REM 1REM;
+    align-self: center;
+}
+
+.search input {
+    margin: 0.5REM 1REM;
+}
+
+fieldset {
+    border: none
+}
+
+.group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    width: 75%;
+    align-self: center;
+    margin: 1REM auto;
+    outline: 5px darkred solid;
+    background-color: #005A9C;
+    color: white;
+    /* border: 1px black solid; */
+}
+
+.group-info {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+    align-self: flex-start;
+    /* border: 1px red solid; */
+    padding:1REM;
+}
+
+.link-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.manager-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sub-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.members, .leader, .staff, .membership{
+    border: 1px black solid;
+    padding: 1REM;
+}
+.memberList, .leadersList, .staffList, .membershipList{
+    background-color: #005A9C;
+    color: white;
+    padding: 0.5REM;
+    outline: 5px darkred solid;
+}
+
+.red {
+    color: darkred;
+}
+
+.red h1 {
+    align-self: center;
+    margin: 0 auto;
+}
+

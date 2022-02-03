@@ -42,11 +42,11 @@
 
 .header {
     flex-direction: column;
-    border-bottom: 5px #EF3E42 solid;
+    border-bottom: 5px darkred solid;
 }
 
 .div-footer {
-    border-top: 5px #EF3E42 solid;
+    border-top: 5px darkred solid;
 }
 
 .div-footer {
