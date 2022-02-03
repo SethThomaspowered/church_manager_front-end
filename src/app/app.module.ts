@@ -10,6 +10,7 @@ import { MoneyComponent } from './money/money.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { DeleteComponent } from './delete/delete.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormsModule } from '@angular/forms';
     PeopleComponent,
     GroupsComponent,
     MoneyComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    DeleteComponent
   ],
   imports: [
     BrowserModule,
