@@ -1,63 +1,132 @@
 <div class="delete-mgr">
 
-    <div class="search">
-        <h2>Search for a person to delete:</h2>
-        <fieldset id="field">
-            
-            <input [(ngModel)]="field" type="radio" id="idNumber" name="field" value="idNumber" >
-            <label for="idNumber">ID</label>
-
-            <input [(ngModel)]="field" type="radio" id="email" name="field" value="email">
-            <label for="email">Email</label>
-    
-            <input [(ngModel)]="field" type="radio" id="phoneNumber" name="field" value="phoneNumber" checked>
-            <label for="phoneNumber">Phone Number</label>
-
-        </fieldset>
-        <input [(ngModel)]="search" type="text" placeholder="Search"/>
-        <input (click)="searchPeople(field, search)" type="submit" value="Search"/> 
-        
-    </div>
-
-
-    <div class="resultList" *ngIf="peopleArray.length">
-        <span class="red" *ngIf="peopleArray">Multiple people found. Search by ID</span>
-
-        <ul>
-            <li *ngFor="let p of peopleArray">
+    <div class="search-container">
+        <div class="searchPeople">
+            <h2>Search for a PERSON to delete:</h2>
+            <fieldset id="field">
                 
-                ID: {{p.id}}  ( {{p.firstName}} {{p.middleName}} {{p.lastName}} )
-            </li>
-        </ul>
-    </div>
+                <input [(ngModel)]="field" type="radio" id="idNumber" name="field" value="idNumber" >
+                <label for="idNumber">ID</label>
 
+                <input [(ngModel)]="field" type="radio" id="email" name="field" value="email">
+                <label for="email">Email</label>
+        
+                <input [(ngModel)]="field" type="radio" id="phoneNumber" name="field" value="phoneNumber" checked>
+                <label for="phoneNumber">Phone Number</label>
 
-
-    <div class="person" *ngIf="person">
-        <div class="basic-info">
-            <h3>Do you want to delete this person:</h3>
-            First Name: 
-            <input [(ngModel)]=firstName type="text" value="{{person.firstName}}"/>
-
-            Middle Name: 
-            <input [(ngModel)]=middleName type="text" value="{{person.middleName}}"/>
-
-            Last Name: 
-            <input [(ngModel)]=lastName type="text" value="{{person.lastName}}"/>
-
-            Email: 
-            <input [(ngModel)]=emailAddress type="text" value="{{person.emailAddress}}"/>
-
-            Phone: 
-            <input [(ngModel)]=phoneNumber type="text" value="{{person.phoneNumber}}"/>
-
-            Type: 
-            <input [(ngModel)]=type type="text" value="{{person.type}}"/>
-<br>
-            ID-Number: 
-            {{person.id}}
-            <input (click)="deletePerson(person.id)" type="submit" value="Delete Person"  *ngIf="!(person.deleted)"/>
-            <br><br><span class="red" *ngIf="person.deleted"><h1>DELETED</h1></span>
+            </fieldset>
+            <input [(ngModel)]="search" type="text" placeholder="Search"/>
+            <input (click)="searchPeople(field, search)" type="submit" value="Search"/> 
+            
         </div>
+
+
+        <div class="resultList" *ngIf="peopleArray.length">
+            <span class="red" *ngIf="peopleArray">Multiple people found. Search by ID</span>
+
+            <ul>
+                <li *ngFor="let p of peopleArray">
+                    
+                    ID: {{p.id}}  ( {{p.firstName}} {{p.middleName}} {{p.lastName}} )
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="person" *ngIf="person">
+            <div class="basic-info">
+                <h3>Do you want to delete this person:</h3>
+                First Name: 
+                <input [(ngModel)]=firstName type="text" value="{{person.firstName}}"/>
+
+                Middle Name: 
+                <input [(ngModel)]=middleName type="text" value="{{person.middleName}}"/>
+
+                Last Name: 
+                <input [(ngModel)]=lastName type="text" value="{{person.lastName}}"/>
+
+                Email: 
+                <input [(ngModel)]=emailAddress type="text" value="{{person.emailAddress}}"/>
+
+                Phone: 
+                <input [(ngModel)]=phoneNumber type="text" value="{{person.phoneNumber}}"/>
+
+                Type: 
+                <input [(ngModel)]=type type="text" value="{{person.type}}"/>
+    <br>
+                ID-Number: 
+                {{person.id}}
+                <input (click)="deletePerson(person.id)" type="submit" value="Delete Person"  *ngIf="!(person.deleted)"/>
+                <br><br><span class="red" *ngIf="person.deleted"><h1>DELETED</h1></span>
+            </div>
+        </div>
+
     </div>
+
+
+
+    <div class="search-container">
+        <div class="searchGroups">
+            <h2>Search for a GROUP to delete:</h2>
+            <fieldset id="Gfield">
+                
+                <input [(ngModel)]="Gfield" type="radio" id="GidNumber" name="Gfield" >
+                <label for="GidNumber">ID</label>
+
+                <input [(ngModel)]="Gfield" type="radio" id="Gtype" name="Gfield" >
+                <label for="Gtype">Type</label>
+        
+                <input [(ngModel)]="Gfield" type="radio" id="Gname" name="Gfield" checked>
+                <label for="Gname">Name</label>
+
+            </fieldset>
+            <input [(ngModel)]="Gsearch" type="text" placeholder="Search"/>
+            <input (click)="searchGroups(Gfield, Gsearch)" type="submit" value="Search"/> 
+            
+        </div>
+
+
+        <div class="resultList" *ngIf="groupsArray.length">
+            <span class="red" *ngIf="groupsArray">Multiple people found. Search by ID</span>
+
+            <ul>
+                <li *ngFor="let g of groupsArray">
+                    
+                    ID: {{g.id}}  - {{g.name}} ( {{g.description}} )
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="groups" *ngIf="group">
+            <div class="basic-info">
+                <h3>Do you want to delete this group:</h3>
+                Name: 
+                <input [(ngModel)]=Gname type="text" value="{{group.name}}"/>
+
+                Type: 
+                <input [(ngModel)]=Gtype type="text" value="{{group.middltypeeName}}"/>
+
+                Description: 
+                <input [(ngModel)]=Gdescription type="text" value="{{group.description}}"/>
+
+                Notes: 
+                <input [(ngModel)]=Gnotes type="text" value="{{group.notes}}"/>
+    <br>
+                ID-Number: 
+                {{group.id}}
+                <input (click)="deleteGroup(group.id)" type="submit" value="Delete Group"  *ngIf="!(group.deleted)"/>
+                <br><br><span class="red" *ngIf="group.deleted"><h1>DELETED</h1></span>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
 </div>

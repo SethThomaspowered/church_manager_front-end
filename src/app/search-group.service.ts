@@ -68,5 +68,10 @@ export class SearchGroupService {
     {observe: 'response'});  
   }
 
+  deleteGroupObservable(groupId: number){
+    return this.http.delete(`https://church-mgr-proj.herokuapp.com/api/v1/groups/${groupId}`,
+    {observe: 'response'});  
+  }
+
     
 }

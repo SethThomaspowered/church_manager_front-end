@@ -1,27 +1,39 @@
 .delete-mgr {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
 }
 
-.search, .create{
+.search-container {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-width: 50%;
-align-self: center;
-border: 1px black solid;
+    align-items: flex-start;
 }
 
-.search h2, .create h2 {
+.searchPeople, .searchGroups{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 75%;
+    align-self: center;
+    border: 1px black solid;
+    
+}
+
+.searchPeople h2, .searchGroups h2, .create h2 {
     margin: 0.5REM 1REM;
     align-self: center;
 }
 
-.search input {
+.searchPeople input, .searchGroups input {
     margin: 0.5REM 1REM;
 }
 
 fieldset {
+
     border: none
 }
 
