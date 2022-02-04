@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { SearchPeopleService } from '../search-people.service';
+import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -29,14 +31,28 @@ user = {
   accessLevel: "Developer",
   loginStamps: ["2022.01.31", "2022.02.01", "2022.02.02", "2022.02.03", "2022.02.04"]
 };
+searchSubject = new Subject;
+status: any;
+isUpString: string = "";
 
 
-  constructor() { }
+
+  constructor(private searchPeopleService: SearchPeopleService, private http: HttpClient) { }
 
   ngOnInit(): void {
-    console.log(this.user);
+    
+    this.isUp();
   }
 
+  isUp(){
+    this.searchPeopleService.isUpObservable()
+    .subscribe((response: any) => {
+      this.status = response.status;
+      console.log(response);
+      this.isUpString = response.body? "UP" : "DOWN";
+
+    })
+  }
   
 
 }

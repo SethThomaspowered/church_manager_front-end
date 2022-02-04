@@ -1,11 +1,16 @@
 <div class="home-content">
     <div class="welcome">
         <h1> Welcome!</h1>
+        <div class="server-status">
+            <span>The Server Status:</span>
+            {{isUpString}}
+        </div>
+
         <p>You are logged in as <span>{{user.first}} {{user.last}} ({{user.accessLevel}})</span><p>
         Your most recent login dates:
         <ul>
             <li *ngFor="let date of user.loginStamps">{{date}}</li>
-        </ul>    
+        </ul>  
 
     </div>
 

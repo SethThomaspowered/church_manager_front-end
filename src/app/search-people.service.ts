@@ -83,4 +83,8 @@ export class SearchPeopleService {
       {observe: 'response'});  
     }
 
+    isUpObservable(){
+      return this.http.get(`https://church-mgr-proj.herokuapp.com/api/v1/`,
+      {observe: 'response'});  
+    }
 }
