@@ -1,1 +1,33 @@
-<p>home works!</p>
+<div class="home-content">
+    <div class="welcome">
+        <h1> Welcome!</h1>
+        <p>You are logged in as <span>{{user.first}} {{user.last}} ({{user.accessLevel}})</span><p>
+        Your most recent login dates:
+        <ul>
+            <li *ngFor="let date of user.loginStamps">{{date}}</li>
+        </ul>    
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
