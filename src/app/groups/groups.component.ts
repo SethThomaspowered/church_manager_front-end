@@ -44,6 +44,7 @@ export class GroupsComponent implements OnInit {
 
 
   searchGroups(field: string, search: string){
+    this.groupsArray = [];
     this.id = 0;
     this.type = "";
     this.name = "";

@@ -1,6 +1,7 @@
 .group-mgr {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .search, .create{
@@ -28,6 +29,24 @@
 fieldset {
     border: none
 }
+
+.resultList{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    width: 40%;
+    border: 1px darkred solid; 
+    padding:1REM;
+    margin: 1REM;
+}
+
+.resultList span{
+    align-self: center;
+
+}
+
+
 
 .group {
     display: flex;

@@ -1,6 +1,7 @@
 .people-mgr {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .search, .create{
@@ -43,6 +44,17 @@ fieldset {
     /* border: 1px black solid; */
 }
 
+.resultList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    width: 40%;
+
+    /* border: 1px red solid; */
+    padding:1REM;
+}
+
 .basic-info, .profile, .member-record {
     
     display: flex;
@@ -59,6 +71,13 @@ fieldset {
     flex-direction: row;
     justify-content: center;
 
+}
+
+.link-container li {
+    margin: 0.5REM;
+    padding: 0.5REM;
+    text-decoration: none;
+    list-style: none;
 }
 
 .manager-box {
@@ -88,6 +107,7 @@ fieldset {
     color: darkred;
     display: flex;
     justify-content: center;
+    list-style: none;
 }
 
 .red h1 {

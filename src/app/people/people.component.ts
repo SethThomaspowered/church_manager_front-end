@@ -61,6 +61,7 @@ export class PeopleComponent implements OnInit {
 
 
   searchPeople(field: string, search: string){
+    this.peopleArray = [];
     this.id = 0;
     this.type = "";
     this.firstName = "";
