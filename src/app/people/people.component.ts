@@ -61,7 +61,14 @@ export class PeopleComponent implements OnInit {
 
 
   searchPeople(field: string, search: string){
-
+    this.id = 0;
+    this.type = "";
+    this.firstName = "";
+    this.middleName = "";
+    this.lastName = "";
+    this.emailAddress = "";
+    this.phoneNumber = "";
+    this.deleted = false;
     this.field = field;
     this.search = search;
     console.log(search);
@@ -83,6 +90,10 @@ export class PeopleComponent implements OnInit {
             this.person = response.body;
           }
 
+
+          if(this.person.deleted){
+            this.deleted = this.person.deleted;
+          } else {
           this.id = this.person.id;
           this.type = this.person.type;
           this.firstName = this.person.firstName;
@@ -91,6 +102,7 @@ export class PeopleComponent implements OnInit {
           this.emailAddress = this.person.emailAddress;
           this.phoneNumber = this.person.phoneNumber;
           this.deleted = this.person.deleted;
+        }
       }
       
       console.log(this.peopleArray)

@@ -85,10 +85,13 @@ fieldset {
 }
 
 .red {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     color: darkred;
 }
 
-.red h1 {
+.red h3 {
     align-self: center;
     margin: 0 auto;
 }

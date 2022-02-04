@@ -35,9 +35,13 @@
         </ul>
     </div>
 
+    
+    <div class="red" *ngIf="group  && (group.deleted)">
+        <br>
+        <h3>This Group Was Previously Deleted.</h3>
+    </div>
 
-
-    <div class="group" *ngIf="group">
+    <div class="group" *ngIf="group  && !(group.deleted)">
         <div class="group-info">
             <h3>Group Info</h3>
             Name: 
@@ -68,14 +72,14 @@
 
     <div class="link-container">
 
-        <div class="membership" *ngIf="group">
+        <div class="membership" *ngIf="group && !(group.deleted)">
             <h3>Membership</h3>
             <ul class="membersList" *ngIf="group.members.length > 0">
                 <li class="member" *ngFor="let member of group.members">ID: {{member.id}} Name: {{member.firstName}} {{member.middleName}} {{member.lastName}}</li>
             </ul>
         </div>
 
-        <div class="members" *ngIf="group">
+        <div class="members" *ngIf="group && !(group.deleted)">
             <h3>Manage Members</h3>
 
             <div class="manager-box">
@@ -94,7 +98,7 @@
             </div>
         </div>
 
-        <div class="leader" *ngIf="group">
+        <div class="leader" *ngIf="group && !(group.deleted)">
             <h3>Manage Leaders</h3>
             <ul class="leadersList" *ngIf="group.leaders.length > 0">
                 <li class="leaderLI" *ngFor="let leader of group.leaders">ID: {{leader.id}} Name: {{leader.firstName}} {{leader.middleName}} {{leader.lastName}}</li>
@@ -117,7 +121,7 @@
 
         </div>
 
-        <div class="staff" *ngIf="group">
+        <div class="staff" *ngIf="group && !(group.deleted)">
             <h3>Manage Staff Supervisor</h3>
             <span class="staffList" *ngIf="group.staffSupervisor != null"> 
                 ID: {{group.staffSupervisor.id}} Name: {{group.staffSupervisor.firstName}} {{group.staffSupervisor.middleName}} {{group.staffSupervisor.lastName}}    

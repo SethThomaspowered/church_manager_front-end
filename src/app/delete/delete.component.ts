@@ -90,6 +90,13 @@ export class DeleteComponent implements OnInit {
 
 
   searchGroups(Gfield: string, Gsearch: string){
+    this.Gid = 0;
+    this.Gtype = "";
+    this.Gname = "";
+    this.Gdescription = "";
+    this.Gnotes = "";
+    this.Gdeleted = false;
+
     this.groupsArray = [];
     this.Gfield = Gfield;
     this.Gsearch = Gsearch;
@@ -113,12 +120,16 @@ export class DeleteComponent implements OnInit {
             this.group = response.body;
           }
 
+          if(this.group.delete){
+            this.Gdeleted = this.group.deleted;
+          } else {
           this.Gid = this.group.id;
           this.Gtype = this.group.type;
           this.Gname = this.group.name;
           this.Gdescription = this.group.description;
           this.Gnotes = this.group.notes;
           this.Gdeleted = this.group.deleted;
+          }
       }
       
       console.log(this.groupsArray)

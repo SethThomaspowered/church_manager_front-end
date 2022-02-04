@@ -44,6 +44,15 @@ export class GroupsComponent implements OnInit {
 
 
   searchGroups(field: string, search: string){
+    this.id = 0;
+    this.type = "";
+    this.name = "";
+    this.description = "";
+    this.notes = "";
+    this.deleted = false;
+    this.staffSupervisor = null;
+    this.leaders = [];
+    this.members = [];
 
     this.field = field;
     this.search = search;
@@ -67,15 +76,20 @@ export class GroupsComponent implements OnInit {
             this.group = response.body;
           }
 
-          this.id = this.group.id;
-          this.type = this.group.type;
-          this.name = this.group.name;
-          this.description = this.group.description;
-          this.notes = this.group.notes;
-          this.deleted = this.group.deleted;
-          this.staffSupervisor = this.group.staffSupervisor;
-          this.leaders = this.group.leaders;
-          this.members = this.group.members;
+
+          if(this.group.deleted){
+            this.deleted = this.group.deleted;
+          } else {
+            this.id = this.group.id;
+            this.type = this.group.type;
+            this.name = this.group.name;
+            this.description = this.group.description;
+            this.notes = this.group.notes;
+            this.deleted = this.group.deleted;
+            this.staffSupervisor = this.group.staffSupervisor;
+            this.leaders = this.group.leaders;
+            this.members = this.group.members;
+          }
       }
       
       console.log(this.groupsArray)

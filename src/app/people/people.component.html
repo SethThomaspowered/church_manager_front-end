@@ -35,9 +35,12 @@
         </ul>
     </div>
 
+    <div class="red" *ngIf="person  && (person.deleted)">
+        <br>
+        <h3>This Record Was Previously Deleted.</h3>
+    </div>
 
-
-    <div class="person" *ngIf="person">
+    <div class="person" *ngIf="person && !(person.deleted)">
         <div class="basic-info">
             <h3>Basic Info</h3>
             First Name: 
@@ -89,8 +92,6 @@
                 anniversary
             )" type="submit" value="Update Profile"  *ngIf="person"/>
 
-<br><br><span class="red" *ngIf="person.deleted"><h1>DELETED</h1></span>
-
         </div>
  
         <div class="member-record">
@@ -125,7 +126,7 @@
     <hr>
 
 
-    <div class="link-container">
+    <div class="link-container" *ngIf="person && !(person.deleted)">
         <div class="children" *ngIf="person">
             <h3>Manage Children</h3>
             <ul class="childrenList" *ngIf="person.children.length > 0">
